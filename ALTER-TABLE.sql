@@ -43,3 +43,5 @@
 -- FROM employees
 -- GROUP BY department_id;
 
+-- delete from employee where lastname like "%ова";
+
