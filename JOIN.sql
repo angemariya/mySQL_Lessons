@@ -77,13 +77,39 @@
 
 select * from employees;
 select * from departments;
+select * from jobs;
 
 -- вывести названия департаментов, где менеджеры получают > 10000
-select 
-	departments.department_name, managers.salary as "Зарплата менеджеров > 10000" 
-from departments
-left join employees
-on employees.department_id = departments.department_id
-left join employees managers
-on employees.manager_id = managers.employee_id
-where managers.salary > 10000;
+-- select 
+-- 	departments.department_name, managers.salary as "Зарплата менеджеров > 10000" 
+-- from departments
+-- left join employees
+-- on employees.department_id = departments.department_id
+-- left join employees managers
+-- on employees.manager_id = managers.employee_id
+-- where managers.salary > 10000;
+
+-- для каждого сотрудника вывести имя, фамилию, название должности
+-- select 
+-- 	employees.first_name, employees.last_name, jobs.job_title
+-- from employees
+-- left join jobs
+-- on employees.job_id = jobs.job_id;
+
+-- select * from countries;
+-- select * from locations;
+
+-- вывести все города из locations как имя города + страна
+-- select 
+-- 	locations.city as "city name", countries.country_name as "country name"
+-- from countries
+-- inner join locations
+-- on countries.country_id = locations.country_id;
+
+-- для каждого сотрудника вывести его имя, зарплату, минимальную и максимальную зарплату для его должности
+-- select 
+-- 	employees.first_name, employees.last_name, employees.salary, 
+--     jobs.job_title, jobs.min_salary, jobs.max_salary
+-- from employees
+-- inner join jobs
+-- on employees.job_id = jobs.job_id;

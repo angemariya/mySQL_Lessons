@@ -52,9 +52,9 @@
 -- INSERT INTO ORDERS VALUES(109,1309.95,'2022-06-10',304,203);
 -- INSERT INTO ORDERS VALUES(110,9891.88,'2022-06-10',306,201);
 
-select * from SELLERS;
-select * from ORDERS;
-select * from CUSTOMERS;
+-- select * from SELLERS;
+-- select * from ORDERS;
+-- select * from CUSTOMERS;
 
 -- select 
 -- 	sellers.SNAME, sellers_copy.sname as boss_name
@@ -103,12 +103,24 @@ select * from CUSTOMERS;
 -- left join sellers sellers_copy
 -- on sellers.boss_ID = sellers_copy.sell_ID;
 
+-- select 
+-- 	SELLERS.SNAME, sum(SELLERS.COMM*ORDERS.AMT) as "BONUS"
+-- from ORDERS
+-- left join SELLERS
+-- on ORDERS.SELL_ID=  SELLERS.sell_ID
+-- GROUP BY SELLERS.SNAME;
+
+-- select * from countries;
+-- select * from locations;
+
 select 
-	SELLERS.SNAME, sum(SELLERS.COMM*ORDERS.AMT) as "BONUS"
-from ORDERS
-left join SELLERS
-on ORDERS.SELL_ID=  SELLERS.sell_ID
-GROUP BY SELLERS.SNAME;
+	countries.country_name, locations.city, locations.country_id
+from countries
+inner join locations
+on countries.country_id =  locations.country_id;
+
+
+
 
 
 
